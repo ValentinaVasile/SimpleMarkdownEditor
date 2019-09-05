@@ -9,9 +9,11 @@ class Item {
 		throw new Error('You have to implement the method toWikimedia!');
 	}	
 }
+
 class TextItem extends Item {
 
 }
+
 class BoldTextItem extends TextItem {
 	constructor(text) {
 		super();
@@ -27,6 +29,7 @@ class BoldTextItem extends TextItem {
 		return  "'''" + this.text + "'''";
 	}		
 }
+
 class PlainTextItem extends TextItem {
 	constructor(text) {
 		super();
@@ -43,6 +46,7 @@ class PlainTextItem extends TextItem {
 	}		
 
 }
+
 class NewLineItem extends TextItem {
 	constructor() {
 		super();
@@ -57,9 +61,11 @@ class NewLineItem extends TextItem {
 		return '\n';
 	}	
 }
+
 class DocumentItem extends Item {
 	
 }
+
 class TitleItem extends Item {
 	constructor(level, text) {
 		super();

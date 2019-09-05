@@ -55,23 +55,19 @@
 	selectElement.addEventListener('change', (event) => {
 		
 		let input = document.querySelector('#input-area').value;
-
-		let test = new Parser;
-		let tokens = test.tokenize(input);
-		let c = {index: 0};
-		let item = test.parseDocument(tokens, c);
+		let parser = new Parser;
+		let tokens = parser.tokenize(input);
+		let cursor = {index: 0};
+		let item = parser.parseDocument(tokens, cursor);
 		let option = selectElement.value;
+
 		if (option == "html") {
 			document.querySelector('#output-area').innerHTML = item.toHTML();
-			console.log(option);
-			
-			
+					
 		} else if (option == "Wikimedia") {
-			console.log(option);
 			document.querySelector('#output-area').innerHTML = item.toWikimedia();
 		}
 		event.preventDefault();
-
 	});
 
 	function eraseText() {
@@ -91,7 +87,7 @@
     	link.click();
     	document.body.removeChild(link);*/
         let content = document.getElementById('output-area').value;
-        window.open("data:text/plain;charset=UTF8," + encodeURIComponent(content), "_self");
+        window.open("data:application/text," + encodeURIComponent(content), "_self");
     }
 </script>
 </body>
