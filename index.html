@@ -8,7 +8,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+	<title>Markdown</title>
 </head>
 
 <body>
@@ -58,14 +58,14 @@
 		let parser = new Parser;
 		let tokens = parser.tokenize(input);
 		let cursor = {index: 0};
-		let item = parser.parseDocument(tokens, cursor);
+		let root = parser.parseDocument(tokens, cursor);
 		let option = selectElement.value;
 
 		if (option == "html") {
-			document.querySelector('#output-area').innerHTML = item.toHTML();
+			document.querySelector('#output-area').innerHTML = root.toHTML();
 					
 		} else if (option == "Wikimedia") {
-			document.querySelector('#output-area').innerHTML = item.toWikimedia();
+			document.querySelector('#output-area').innerHTML = root.toWikimedia();
 		}
 		event.preventDefault();
 	});
