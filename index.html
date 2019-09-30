@@ -21,7 +21,7 @@
 			<h1>Input</h1>
 			<p class="fieldLabel">Write here your markdown text:</p>
 			<br>
-			<textarea id="input-area" class="textarea" length="1000" maxlength="2000"></textarea>
+			<textarea id="input-area" class="textarea" length="1000" maxlength="2000" onKeyUp='translateTo()'></textarea>
 			<br>
 			<br>
 			<div class="select-wrap">
@@ -48,47 +48,10 @@
 			</div>
 		</div>
 	</div>
-<script src="app.js"></script>
-<script>
+<script src="parser	.js"></script>
+<script src="app.js">
 	
-	const selectElement = document.getElementById('outputs')
-	selectElement.addEventListener('change', (event) => {
-		
-		let input = document.querySelector('#input-area').value;
-		let parser = new Parser;
-		let tokens = parser.tokenize(input);
-		let cursor = {index: 0};
-		let root = parser.parseDocument(tokens, cursor);
-		let option = selectElement.value;
-
-		if (option == "html") {
-			document.querySelector('#output-area').innerHTML = root.toHTML();
-					
-		} else if (option == "Wikimedia") {
-			document.querySelector('#output-area').innerHTML = root.toWikimedia();
-		}
-		event.preventDefault();
-	});
-
-	function eraseText() {
-		document.getElementById("output-area").value = "";
-	}
-	//download file
-	document.getElementById("download-button").onclick = function() {
-		
-		/*let fileName = selectElement.value;
-		let link = document.createElement("a");   
-		let uri = 'data:text/csv;charset=utf-8,'; 
-		link.href = uri;
-    	link.style = "visibility:hidden";
-    	link.download = fileName + ".txt";
-    
-    	document.body.appendChild(link);
-    	link.click();
-    	document.body.removeChild(link);*/
-        let content = document.getElementById('output-area').value;
-        window.open("data:application/text," + encodeURIComponent(content), "_self");
-    }
+	
 </script>
 </body>
 

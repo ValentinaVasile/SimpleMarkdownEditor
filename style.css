@@ -136,6 +136,6 @@ select {
 	line-height: 1.3;
   }
   .row {
-	  display: inline-flex;
-	  text-align: center;
+	display: inline-flex;
+	text-align: center;
   }
