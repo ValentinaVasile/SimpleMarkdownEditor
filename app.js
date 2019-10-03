@@ -9,7 +9,7 @@ function translateTo() {
 	if (option == "html") {
 		document.querySelector('#output-area').innerHTML = root.toHTML();
 				
-	} else if (option == "Wikimedia") {
+	} else if(option == "Wikimedia") {
 		document.querySelector('#output-area').innerHTML = root.toWikimedia();
 	} else {
 		alert("Please pick an option");
